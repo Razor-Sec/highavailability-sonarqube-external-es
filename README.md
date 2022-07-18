@@ -155,6 +155,32 @@ curl 10.8.60.196:9001
 
 ```
 
+# Checking node elasticsearch
+```bash
+# checking nodes
+curl es-master:9001/_cat/nodes?v
+# checking indices
+curl es-master:9001/_cat/indices?v
+```
+
+# Test create index elasticsearch
+```bash
+# add example docs
+curl -X POST "localhost:9001/test-docs/_doc?pretty" -H 'Content-Type: application/json' -d'
+{
+  "@timestamp": "2099-05-06T16:21:15.000Z",
+  "event": {
+    "original": "192.0.2.42 - - [06/May/2099:16:21:15 +0000] \"GET /images/bg.jpg HTTP/1.0\" 200 24736"
+  }
+}
+'
+
+# check
+curl es-master:9001/_cat/indices?v
+curl -X GET "localhost:9001/test-docs/_search?pretty"
+```
+
+
 # Setup database for sonarqube using vip
 
 
