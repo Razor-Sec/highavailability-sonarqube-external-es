@@ -1,8 +1,10 @@
 # INFO VM
 
-node sq1 es1: 10.8.60.220
-node sq2 es2: 10.8.60.
-node sq3 es3: 10.8.60.220
+|Name|IP|
+|:---|:-----:|
+|node sq1 es1| 10.8.60.220|
+|node sq2 es2| 10.8.60.221|
+|node sq3 es3| 10.8.60.196|
 
 > nodes elasticsearch should be 3 nodes for minimum failover , if nodes less than 3 failover will doesn't work. As Elasticsearch is consensus based you need at least 3 master eligible nodes. Losing any of your nodes will therefore make your cluster not fully operable.
 
