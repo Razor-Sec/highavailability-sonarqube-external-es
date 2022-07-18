@@ -177,7 +177,11 @@ curl -X POST "localhost:9001/test-docs/_doc?pretty" -H 'Content-Type: applicatio
 
 # check
 curl es-master:9001/_cat/indices?v
-curl -X GET "localhost:9001/test-docs/_search?pretty"
+curl es-slave1:9001/_cat/indices?v
+curl es-slave2:9001/_cat/indices?v
+curl -X GET "es-master:9001/test-docs/_search?pretty"
+curl -X GET "es-slave1:9001/test-docs/_search?pretty"
+curl -X GET "es-slave2:9001/test-docs/_search?pretty"
 ```
 
 
